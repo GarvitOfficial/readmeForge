@@ -191,7 +191,7 @@ This project uses only open-source libraries with permissive licenses:
 ---
 
 <div align="center">
-  <strong>Made with ❤️ and lots of ☕ for the developer community</strong>
+  <strong>Made with ❤️ for the developer community</strong>
   <br>
   <em>Keep coding, keep innovating! 🚀</em>
 </div>
