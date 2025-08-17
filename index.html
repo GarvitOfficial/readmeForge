@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadmeForge Github - Create Stunning Profiles in Minutes</title>
+    <meta name="description" content="Create beautiful GitHub README profiles with drag-and-drop interface, live preview, and 20+ stunning templates. No coding required!">
+    <meta name="keywords" content="GitHub, README, generator, profile, markdown, templates, drag-drop">
+    <meta name="author" content="@garvitofficial">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- React and ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- FileSaver.js for downloading files -->
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-green': '#39ff14',
+                        'neon-blue': '#00ffff',
+                        'neon-pink': '#ff1493',
+                        'dark-bg': '#0d1117',
+                        'dark-card': '#161b22',
+                        'dark-border': '#30363d'
+                    },
+                    animation: {
+                        'pulse-neon': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 15px #39ff14; }
+            to { box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14; }
+        }
+        
+        .github-markdown {
+            color: #e6edf3;
+            background-color: #0d1117;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        
+        .github-markdown h1, .github-markdown h2, .github-markdown h3 {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 0.3em;
+            margin-bottom: 16px;
+            margin-top: 24px;
+        }
+        
+        .github-markdown h1 { font-size: 2em; }
+        .github-markdown h2 { font-size: 1.5em; }
+        .github-markdown h3 { font-size: 1.25em; }
+        
+        .github-markdown img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .github-markdown code {
+            background-color: rgba(110,118,129,0.4);
+            border-radius: 6px;
+            font-size: 85%;
+            margin: 0;
+            padding: 0.2em 0.4em;
+        }
+        
+        .github-markdown pre {
+            background-color: #161b22;
+            border-radius: 6px;
+            font-size: 85%;
+            line-height: 1.45;
+            overflow: auto;
+            padding: 16px;
+        }
+        
+        .drag-handle {
+            cursor: grab;
+        }
+        
+        .drag-handle:active {
+            cursor: grabbing;
+        }
+        
+        .section-card {
+            transition: all 0.2s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(57, 255, 20, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white min-h-screen">
+
+    
+    
+    <div id="root"></div>
+    
+    <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Component Files -->
+    <script src="components/index.js"></script>
+    <script src="components/bio.js"></script>
+    <script src="components/contrib3d.js"></script>
+    <script src="components/snake.js"></script>
+    <script src="components/cat3d.js"></script>
+    <script src="components/skills.js"></script>
+    <script src="components/projects.js"></script>
+    <script src="components/stats.js"></script>
+    <script src="components/social.js"></script>
+   
+    <script src="components/typing.js"></script>
+    
+    <!-- New Creative Template Components -->
+     
+    <script src="components/robot3d.js"></script>
+    <script src="components/space3d.js"></script>
+    <script src="components/gaming3d.js"></script>
+    
+    <!-- Integration Components -->
+    <script src="components/spotify.js"></script>
+    <script src="components/coffee.js"></script>
+    <script src="components/wakatime.js"></script>
+    
+    <!-- Additional Components -->
+    <script src="components/quotes.js"></script>
+    <script src="components/activity.js"></script>
+    <script src="components/languages.js"></script>
+    <script src="components/matrix.js"></script>
+    
+    <script src="components/metrics.js"></script>
+    <script src="components/stickers3d.js"></script>
+    
+    <!-- Main App Script -->
+    <script type="text/babel" src="script.js"></script>
+</body>
+</html>
