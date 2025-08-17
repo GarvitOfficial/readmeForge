@@ -2,6 +2,7 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=35&pause=1000&color=9932CC&center=true&vCenter=true&random=false&width=800&lines=GitHub+README+Generator;Create+Stunning+Profiles+%F0%9F%9A%80;Drag+%26+Drop+Interface+%E2%9C%A8;20%2B+Amazing+Templates+%F0%9F%8E%A8" alt="Title" />
 </div>
 
+
 <div align="center">
   <img src="https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react&logoColor=white" alt="React" />
   <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
@@ -14,7 +15,8 @@
   <p>Create stunning GitHub README profiles in minutes with our intuitive drag-and-drop interface, live preview, and 20+ spectacular templates!</p>
   
   <h2>🚀 <strong><a href="https://xrpgarv.me/readmeForge/" target="_blank">✨ Try ReadmeForge Live ✨</a></strong></h2>
-  
+  <img width="2940" height="1530" alt="image" src="https://github.com/user-attachments/assets/e1a1acc7-b990-4d04-91b9-22bd610eecda" />
+
 </div>
 
 ---
