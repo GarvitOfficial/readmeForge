@@ -49,35 +49,54 @@ function showToast(message, type = 'success') {
 }
 
 // Main Components
-function Sidebar({ onDragStart }) {
+function Sidebar({ onDragStart, onTouchStart, onTouchMove, onTouchEnd }) {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const sections = Object.values(SECTION_TEMPLATES);
+  
+  const toggleMobileSidebar = () => {
+    setIsMobileOpen(!isMobileOpen);
+  };
   
   return React.createElement('div', {
     ref: sidebarRef,
-    className: 'w-80 bg-dark-card border-r border-dark-border h-screen overflow-y-auto p-4 sidebar'
+    className: `sidebar ${isMobileOpen ? 'open' : ''} w-80 bg-dark-card border-r border-dark-border h-screen overflow-y-auto p-4`
   }, [
     React.createElement('div', {
+      key: 'mobile-toggle',
+      className: 'md:hidden fixed top-4 left-4 z-50'
+    }, [
+      React.createElement('button', {
+        key: 'toggle-btn',
+        onClick: toggleMobileSidebar,
+        className: 'bg-neon-green text-black p-2 rounded-lg font-bold'
+      }, isMobileOpen ? '✕' : '☰')
+    ]),
+    React.createElement('div', {
       key: 'header',
-      className: 'mb-6'
+      className: 'mb-6 mt-12 md:mt-0'
     }, [
       React.createElement('h2', {
         key: 'title',
-        className: 'text-xl font-bold text-neon-green mb-2'
-      }, '📝 README Sections'),
+        className: 'text-2xl font-bold text-neon-green mb-2'
+      }, '🧩 Components'),
       React.createElement('p', {
         key: 'subtitle',
         className: 'text-gray-400 text-sm'
-      }, 'Drag sections to canvas')
+      }, 'Drag sections to the canvas to build your README')
     ]),
     React.createElement('div', {
       key: 'sections',
       className: 'space-y-3'
-    }, Object.values(SECTION_TEMPLATES).map(section => 
+    }, sections.map(section => 
       React.createElement('div', {
         key: section.id,
         draggable: true,
         onDragStart: (e) => onDragStart(e, section),
-        className: 'p-3 bg-dark-bg border border-dark-border rounded-lg cursor-move hover:border-neon-green transition-colors section-card'
+        onTouchStart: (e) => onTouchStart(e, section),
+        onTouchMove: onTouchMove,
+        onTouchEnd: onTouchEnd,
+        className: 'p-3 bg-dark-bg border border-dark-border rounded-lg cursor-move hover:border-neon-green transition-colors section-card drag-handle'
       }, [
         React.createElement('div', {
           key: 'content',
@@ -92,12 +111,12 @@ function Sidebar({ onDragStart }) {
           }, [
             React.createElement('h3', {
               key: 'name',
-              className: 'font-medium text-white'
+              className: 'font-semibold text-white'
             }, section.name),
             React.createElement('p', {
               key: 'desc',
-              className: 'text-xs text-gray-400'
-            }, `${section.template.split('\n')[0].substring(0, 30)}...`)
+              className: 'text-xs text-gray-400 mt-1'
+            }, `Add ${section.name.toLowerCase()} to your README`)
           ])
         ])
       ])
@@ -167,7 +186,7 @@ function Canvas({ sections, onDrop, onDragOver, onEdit, onDelete, onReorder }) {
     ref: canvasRef,
     onDrop: onDrop,
     onDragOver: onDragOver,
-    className: 'flex-1 p-6 bg-dark-bg min-h-screen canvas'
+    className: 'flex-1 p-6 bg-dark-bg min-h-screen canvas canvas-drop-zone'
   }, [
     React.createElement('div', {
       key: 'header',
@@ -496,6 +515,51 @@ function App() {
     e.dataTransfer.setData('text/plain', JSON.stringify({ section, source: 'sidebar' }));
   };
   
+  // Touch event handlers for mobile drag-and-drop
+  const handleTouchStart = (e, section) => {
+    const touch = e.touches[0];
+    const dragData = { section, source: 'sidebar' };
+    
+    // Store drag data for touch events
+    e.target.setAttribute('data-drag-info', JSON.stringify(dragData));
+    
+    // Visual feedback for touch drag
+    e.target.style.opacity = '0.7';
+    e.target.style.transform = 'scale(1.05)';
+  };
+  
+  const handleTouchMove = (e) => {
+    e.preventDefault(); // Prevent scrolling while dragging
+  };
+  
+  const handleTouchEnd = (e) => {
+    const touch = e.changedTouches[0];
+    const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+    
+    // Reset visual feedback
+    e.target.style.opacity = '1';
+    e.target.style.transform = 'scale(1)';
+    
+    // Check if dropped on canvas
+    const canvas = elementBelow?.closest('.canvas-drop-zone');
+    if (canvas && e.target.hasAttribute('data-drag-info')) {
+      const dragData = JSON.parse(e.target.getAttribute('data-drag-info'));
+      
+      // Simulate drop event
+      const mockEvent = {
+        preventDefault: () => {},
+        dataTransfer: {
+          getData: () => JSON.stringify(dragData)
+        }
+      };
+      
+      handleDrop(mockEvent);
+    }
+    
+    // Clean up
+    e.target.removeAttribute('data-drag-info');
+  };
+  
   const handleDrop = (e) => {
     e.preventDefault();
     const data = JSON.parse(e.dataTransfer.getData('text/plain'));
@@ -597,7 +661,10 @@ function App() {
     }, [
       React.createElement(Sidebar, {
         key: 'sidebar',
-        onDragStart: handleDragStart
+        onDragStart: handleDragStart,
+        onTouchStart: handleTouchStart,
+        onTouchMove: handleTouchMove,
+        onTouchEnd: handleTouchEnd
       }),
       React.createElement(Canvas, {
         key: 'canvas',
@@ -628,26 +695,7 @@ function App() {
         onSkip: handleUsernameSkip
       })
     ]),
-    React.createElement('footer', {
-      key: 'footer',
-      className: 'bg-dark-card border-t border-dark-border p-4 text-center'
-    }, [
-      React.createElement('div', {
-        key: 'content',
-        className: 'text-gray-400 text-sm'
-      }, [
-        React.createElement('span', {
-          key: 'text'
-        }, 'Made with ❤️ for the developer community | '),
-        React.createElement('a', {
-          key: 'link',
-          href: 'https://github.com/GarvitOfficial/readmeForge',
-          target: '_blank',
-          rel: 'noopener noreferrer',
-          className: 'text-neon-green hover:text-neon-blue transition-colors'
-        }, 'GitHub README Generator')
-      ])
-    ])
+   
   ]);
 }
 

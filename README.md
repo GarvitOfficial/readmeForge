@@ -13,6 +13,7 @@
   <h3>🎯 The Ultimate GitHub Profile Creator</h3>
   <p>Create stunning GitHub README profiles in minutes with our intuitive drag-and-drop interface, live preview, and 20+ spectacular templates!</p>
   
+  <h2>🚀 <strong><a href="https://xrpgarv.me/readmeForge/" target="_blank">✨ Try ReadmeForge Live ✨</a></strong></h2>
   
 </div>
 
@@ -67,9 +68,13 @@
 
 ## 🚀 Getting Started
 
+### 🌟 **[Start Creating Your README Now! 🎨](https://xrpgarv.me/readmeForge/)**
+
 ### Prerequisites
 - Modern web browser with JavaScript enabled
 - No installation required - runs entirely in the browser!
+
+**✨ Ready to get started? Visit: [https://xrpgarv.me/readmeForge/](https://xrpgarv.me/readmeForge/)**
 
 ## 🛠️ Development Guide
 
@@ -158,9 +163,14 @@ Add your component to `index.html`:
 
 ### Usage
 
+**🎯 Quick Start: [Launch ReadmeForge](https://xrpgarv.me/readmeForge/) and start building your README in seconds!**
+
 1. **Open the Application**
    ```bash
-   # Simply open index.html in your web browser
+   # Visit the live application
+   https://xrpgarv.me/readmeForge/
+   
+   # Or run locally: Simply open index.html in your web browser
    open index.html
    ```
 
@@ -243,11 +253,15 @@ Includes badges for:
 
 ## 🌟 Pro Tips
 
+**🚀 [Try these features live at ReadmeForge!](https://xrpgarv.me/readmeForge/)**
+
 - **Drag to Reorder**: Sections can be reordered by dragging
 - **Edit Inline**: Click edit on any section to modify content
 - **Import Existing**: Upload your current README to start editing
 - **Live Preview**: See changes instantly in the preview panel
 - **Mobile Friendly**: Works great on tablets and phones
+
+**Ready to create your stunning README? [Get Started Here! 🎨](https://xrpgarv.me/readmeForge/)**
 
 ## 🤝 Contributing
 
@@ -278,7 +292,10 @@ This project uses only open-source libraries with permissive licenses:
 ---
 
 <div align="center">
+  <h2>🚀 <strong><a href="https://xrpgarv.me/readmeForge/" target="_blank">Create Your Amazing README Now!</a></strong> 🎨</h2>
   <strong>Made with ❤️ for the developer community</strong>
   <br>
   <em>Keep coding, keep innovating! 🚀</em>
+  <br><br>
+  <strong>🌟 <a href="https://xrpgarv.me/readmeForge/">Visit ReadmeForge</a> 🌟</strong>
 </div>

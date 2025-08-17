@@ -115,11 +115,30 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(57, 255, 20, 0.3);
         }
+        
+        /* Mobile-friendly styles */
+        @media (max-width: 768px) {
+            
+            
+            .github-markdown {
+                font-size: 14px;
+                padding: 8px;
+            }
+            
+            .github-markdown h1 { font-size: 1.5em; }
+            .github-markdown h2 { font-size: 1.3em; }
+            .github-markdown h3 { font-size: 1.1em; }
+        }
     </style>
 </head>
 <body class="bg-dark-bg text-white min-h-screen">
-
-    
+    <!-- Mobile Landscape Notice -->
+    <div class="landscape-notice">
+        <div class="rotate-icon">📱</div>
+        <h2>Please Rotate Your Device</h2>
+        <p>For the best experience with ReadmeForge, please rotate your device to landscape mode to access the full drag-and-drop interface.</p>
+        <div style="color: #39ff14; font-size: 1.5rem; margin-top: 1rem;">🔄 Rotate to Continue</div>
+    </div>
     
     <div id="root"></div>
     
