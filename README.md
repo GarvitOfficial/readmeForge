@@ -15,7 +15,8 @@
   <p>Create stunning GitHub README profiles in minutes with our intuitive drag-and-drop interface, live preview, and 20+ spectacular templates!</p>
   
   <h2>🚀 <strong><a href="https://xrpgarv.me/readmeForge/" target="_blank">✨ Try ReadmeForge Live ✨</a></strong></h2>
-  <img width="2940" height="1530" alt="image" src="https://github.com/user-attachments/assets/e1a1acc7-b990-4d04-91b9-22bd610eecda" />
+<img width="2892" height="1514" alt="image" src="https://github.com/user-attachments/assets/63876002-8b2a-44c3-8f7e-f5c0c70717c0" />
+
 
 </div>
 
